@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load bootstrap5 %}
+  {% load bootstrap_icons %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+ <style>
+  .menu_item{
+    font-family: Lato,sans-serif !important;
+    color: black !important;
+    cursor: pointer;
+  }
+  .menu_item:hover{
+    color:#dc3545 !important;
+  }
+  .link{
+    font-family: Lato,sans-serif !important;
+    color: black !important;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .link:hover{
+    color:#dc3545 !important;
+    text-decoration: underline;
+  }
+ </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark text-dark   pt-0 pb-0 " style="min-height:5px; background-color: white ;">
+    <div class="container-fluid">
+    <a class="navbar w-25  justify-content-center" href="books" >
+      <img src="photo/logo8.png"   class="d-inline-block align-top  w-50 h-100"   alt="">
+      
+    </a>
+    <button class="navbar-toggler" style="color: #d2515e !important; background-color:#cd868d !important;" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav w-50">
+        <!-- <li class="nav-item ">
+          <a class="nav-link text-light fs-5" href="profile">Profile </a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link  fs-5 menu_item"  href="books">Books</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  fs-5 menu_item" href="returnb">Return-Book</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link  fs-5 menu_item" href="history">History</a>
+          </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-danger" type="submit">Search</button>
+      </form>
+        <ul class="navbar-nav ms-auto " >
+            <li class="nav-item mt-3">
+          <p class="fs-5 text-dark">{{b}}</p>
+        </li>
+        <li class="nav-item px-2 ">
+          <!-- <a class="navbar-brand" href="#">
+            <img src="photo/logo6.png" alt="Avatar Logo" style="width:50px; height: 50px;"  class="rounded-pill bg-white">
+          </a> -->
+          <div class="dropdown ">
+            <a class="btn  dropdown-toggle" style="background-color: white;" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="{{c.url}}" alt="Logo" style="width:53px; height: 53px;"  class="rounded-pill bg-white">
+            </a>
+          
+            <ul class="dropdown-menu dropdown-menu-danger dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+              <li><a class="dropdown-item" href="profile">Profile</a></li>
+              <li><a class="dropdown-item" href="logout">Logout</a></li>
+              <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+            </ul>
+          </div>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link text-light fs-5" href="logout">Logout</a>
+        </li> -->
+      </ul>
+    </div>
+  </div>
+  </nav>
+  <hr style="margin:0;">
+  <div style="min-height: 650px;" > 
+  {% block content %}
+  {% endblock %}
+</div>
+<hr class="mt-0 mb-0">
+<div class="container-fluid ">
+  <div class="row">
+    <div class="col-12 text-center">
+      <p class="fs-6 text-dark m-1 mt-3" style="font-family: Lato,sans-serif !important"><b>Contact us anytime between 10:00 AM & 07:00 PM on all days!</b></p>
+    </div>
+  </div>
+  <div class="row text-center mt-2">
+    <div class="col-4">
+        <img src="/photo/logo8.png" class="w-25 mb-2"><br>Book Store is an online books and magazine rental service.<br> We have over 10 lakh books and 2 lakh happy customers.<br> With just 3 easy steps you can become a member and start reading.
+    </div>
+    <div class="col-4">
+      <p class="fs-6 mb-0 mt-1"><u>OUR INFORMATION</p></u><br>
+      <a href="policy " class="link-dark link ">Privacy Policy Update</a><br>
+      <a href="term" class="link-dark link">Terms and Conditions</a><br>
+      <a href="refund" class="link-dark link">Cancellation & Refund Policy</a><br>
+      <a href="shipping" class="link-dark link">Shipping & Delivery Policy</a><br>
+      <a href="contact" class="link-dark link">Contact Us</a>
+    </div>
+    <div class="col-4">
+      <p class="fs-6 mb-0 mt-1"><u>CONTACT</p></u><br>
+      <a href="#" class="link-dark link " disabled>Customercare@Bookstoreclc.com</a><br>
+      <a href="#" class="link-dark link" disabled>Call Us: 080-40511711</a><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center">
+      <div class="container  pb-0">
+        <!-- Section: Social media -->
+        <section class="mb-1">
+          
+          
+          
+    
+          <!-- Facebook -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            >{% bs_icon 'facebook' size='30px' %}
+          </a>
+    
+          <!-- Twitter -->
+       
+          <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            >{% bs_icon 'twitter' size='30px' %}
+          </a>
+          <!-- Google -->
+          <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="#!"
+          role="button"
+          data-mdb-ripple-color="dark"
+          >{% bs_icon 'google' size='30px' %}
+        </a>
+    
+          <!-- Instagram -->
+          <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="#!"
+          role="button"
+          data-mdb-ripple-color="dark"
+          >{% bs_icon 'instagram' size='30px' %}
+        </a>
+    
+          <!-- Linkedin -->
+          <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="#!"
+          role="button"
+          data-mdb-ripple-color="dark"
+          >{% bs_icon 'linkedin' size='30px' %}
+        </a>
+          <!-- Github -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            >{% bs_icon 'github' size='30px' %}
+          </a>
+        </section>
+        <!-- Section: Social media -->
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center mb-2">
+      © 2020 Copyright:
+      <a class="link " href="https://mdbootstrap.com/">library.com</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

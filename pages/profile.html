@@ -1,0 +1,38 @@
+{% extends 'master.html' %}
+
+{% block content %}
+<div class="container-fluid ">
+<div class="row" style="padding-top: 100px;  background-image: url(../photo/back2.jpg); background-repeat: no-repeat; background-size: 100% 300px; opacity: 0.9;  min-height:600px;">
+    <div class="col-2">
+
+    </div>
+    <div class="col-2 mt-5 pt-5 ps-0 pe-0 d-flex justify-content-center" style="   background-repeat: no-repeat ;background-size: cover;  height:300px;  ">
+        <img src="{{c.url}}" alt="Logo" style="border: 5px solid white; box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;"  class="rounded-pill bg-white h-75 w-75">
+    </div>
+    <div class="col-5" style=" min-height: 200px;">
+        <div class="row">
+        <div class="col-12" style=" min-height: 200px;"></div>
+        <div class="col-12 pt-2 ps-0 pe-0">
+            <p class="h1" style="color: #dc3545;">{{i.fname}} {{i.lname}}</p>
+        </div>
+        <div class="col-12 pt-2 ps-0 pe-0">
+            <p class="h5">{{i.phone}}</p>
+        </div>
+        <div class="col-12 pt-2 ps-0 pe-0">
+            <p class="h5" >{{i.password}}</p>
+        </div>
+        <div class="col-12 pt-2 ps-0 pe-0">
+            <p class="h5" >{{i.gender}}</p>
+        </div>
+        <div class="col-12 pt-2 ps-0 pe-0" >
+            <input type="submit" value="Edit Profile" class="btn btn-outline-danger me-3 w-25"/>
+           
+        </div>
+    </div>
+    </div>
+    <div class="col-3">
+        </div>
+    
+</div>
+</div>
+{% endblock%}

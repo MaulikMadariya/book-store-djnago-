@@ -1,0 +1,99 @@
+{% extends 'master.html' %}
+
+{% block content %}
+<div class="container">
+
+    {% if messages != none %}
+    {% for i in messages %}
+    <div class="container-fluid">
+        <div class="row m-1 ">
+            <div class="alert {{ i.tags }} alert-dismissible fade show " role="alert">
+                <strong>Hey!</strong> {{i}}<a href="books" class="alert-link">   Continue for Books</a>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+<div class="container-fluid">
+    <form action="rent_update" method="post">
+        {% csrf_token %}
+    <div class="row m-5 p-5 h-auto">
+      
+      
+      <input type="hidden" value="{{i.id}}" name="bid"/>
+      <input type="hidden" value="{{i.price}}" name="ptm"/>
+      <div class="col-1">
+
+      </div>
+        <div class="col-4" >
+            <!-- <div class="row" >
+                <div class="col-12 m-3 mt-0 " " >
+                <h3 class="h3" style="color: #dc3545; overflow: hidden; text-overflow: ellipsis;">{{i.name}}</h3></div>
+           </div> -->
+            <div class="row" >
+                <div class="col-12 m-3 mt-0 " >
+                    <img src="{{i.image.url}}" class="h-100 w-100" style="max-width: 300px; max-height: 500px; border-radius: 20px;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-12 m-3 mt-0">
+                    
+                        <h3 class="h3">Book Details</h3>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12  m-3 mt-0">
+                    <h5 class="h5">Book Name :- {{i.name}}</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12  m-3 mt-0">
+                    <h5 class="h5">Author :- {{i.author}}</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12  m-3 mt-0" style="display: inline-flex;">
+                    <h5 class="h5">Price :- </h5>
+                    <h5 class="h5">&nbsp;{{i.price}}</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12  m-3 mt-0" style="display: inline-flex;">
+                    <h5 class="h5">Quntity :-&nbsp; </h5>
+                    <select class="form-select form-select-sm w-25" name="qty" style="max-width: 80px;" aria-label="Default select example">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                      </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12  m-3 mt-0" style="display: inline-flex;">
+                    <h5 class="h5 me-2">Payment :- </h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          Payment By Cash
+                        </label>
+                      </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12  m-3 mt-0" style="display: inline-flex;">
+                    <input type="submit" value="Rent Book" class="btn btn-outline-danger me-3 w-25"/>
+                   
+                </div>
+            </div>
+            
+        </div>
+        
+        
+    </div>
+</form>
+</div>
+{% endblock %}

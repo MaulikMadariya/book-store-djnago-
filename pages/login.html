@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<div class="container">
+
+    {% if messages != none %}
+    {% for i in messages %}
+    <div class="container-fluid">
+        <div class="row m-1 ">
+            <div class="alert {{ i.tags }} alert-dismissible fade show " role="alert">
+                <strong>Hey!</strong> {{i}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+<div>
+    <div class="container-fluid mt-5 ps-5 mb-5" >
+        <div class="row">
+            <div class="col-5 ms-5" style="background-image:url(photo/login.png);background-repeat: no-repeat ; background-color: #dc3545; background-size: 101% 110%;" ></div>
+            <div class="col-5 ms-5 mt-5 mb-5  " style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; background-color: white; border-radius: 20px;">
+                <form class=" mt-5 ms-5 me-5" method="post" action="login" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <div class="col-12 mb-5" style="color: #dc3545;">
+                            <p class="h1 text-center">Welcome back</p>
+                        </div>
+                            <div class="col-12 mb-4 mt-2">
+                                <input type="text" class="form-control form-control-lg" placeholder="Phone Number" name="phone">
+                            </div>
+                            <div class="col-12 mb-4">
+                                <input type="password" class="form-control form-control-lg" placeholder="Password" name="password">
+                            </div>
+                            <div class="col-12 mb-2">
+                                <div class="row">
+                                <div class="col-8 me-0" style="display: inline-flex;">
+                                    <input type="checkbox" class="me-2"  /><p class="link m-0 p-0" >Remember me?</p>
+                                </div>
+                                <!-- <div class="col-4">
+
+                                </div> -->
+                                <div class="col-4 me-0 ps-4  text-center " >
+                                    <a href="#" class="link">Forgot Password</a>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-12 mb-4">
+                                Don't have an account? <a href="signup" class="link-danger">Sign Up!</a>
+                              <div class="mb-5 mt-3 col-12">
+                                <div class="row">
+                                <div class="col-6 text-white"></div>
+                                <div class="col-6">
+                                <button type="submit" class="btn btn-outline-danger  col-12" id="btnSignUp">Login</button>  
+                              </div></div>
+                          </form>
+                    </div>    
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %} 
